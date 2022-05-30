@@ -1,0 +1,54 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              05/31/2022 00:58:41 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INTVECTOR(0X0A00) DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*Include Files*/
+   2          #include <reg52.h>
+   3          #include "uart_stc89c52rc.h"
+   4          #include "delay.h"
+   5          #include "type.h"
+   6          #include "iap_eeprom.h"
+   7          #include "test.h"
+   8          
+   9          /*Macros*/
+  10          #define VERSION_STRING "test_IAP_Eeprom v0,2022.5.30\r\n"
+  11          
+  12          /*Function prototypes*/
+  13          
+  14          int main(void)
+  15          {
+  16   1        Uart_RT_Init();
+  17   1        SendUartMultiBytes(VERSION_STRING,sizeof(VERSION_STRING));
+  18   1        test_printf(0,"123\r\n");
+  19   1      
+  20   1      #if 1
+  21   1        Test_IapEepromFunction();
+  22   1      #endif
+  23   1      
+  24   1        while(1)
+  25   1        {
+  26   2          delay_1ms(1000);
+  27   2          //SendUartOneByte('w');
+  28   2          //SendUartMultiBytes(VERSION_STRING,sizeof(VERSION_STRING));
+  29   2        }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     37    ----
+   CONSTANT SIZE    =     37    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

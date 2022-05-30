@@ -1,0 +1,9 @@
+".\Objects\main.obj",
+".\Objects\delay.obj",
+".\Objects\uart_stc89c52rc.obj",
+".\Objects\iap_eeprom.obj",
+".\Objects\test.obj",
+".\Objects\STARTUP.obj" 
+TO ".\Objects\test_IAP_Eeprom" 
+PRINT(".\Listings\test_IAP_Eeprom.m51") RAMSIZE(256) 
+CODE( 0x0a00-0x1fff )

@@ -1,0 +1,77 @@
+C51 COMPILER V9.60.0.0   UART_STC89C52RC                                                   05/31/2022 00:58:41 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART_STC89C52RC
+OBJECT MODULE PLACED IN .\Objects\uart_stc89c52rc.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE uart_stc89c52rc.c OPTIMIZE(8,SPEED) BROWSE INTVECTOR(0X0A00) DEBUG OBJEC
+                    -TEXTEND PRINT(.\Listings\uart_stc89c52rc.lst) TABS(2) OBJECT(.\Objects\uart_stc89c52rc.obj)
+
+line level    source
+
+   1          #include "reg52.h"
+   2          #include "uart_stc89c52rc.h"
+   3          #include "test.h"
+   4          /*
+   5          Function Prototype: void Uart_RT_Init()
+   6          Entry Params: baud ,eg,9600,115200 etc,
+   7          Return Value:void
+   8          Author:
+   9          Time: 2022-5-14
+  10          description: config uart baudrate,enable uart interrupt
+  11          */
+  12          void Uart_RT_Init(void)
+  13          {
+  14   1          //SCON = 0X50;
+  15   1        SCON = 0xd0;
+  16   1        TMOD &= 0X0F;
+  17   1        TMOD |= 0X20;
+  18   1        //TH1 = 220;
+  19   1        //TL1 = 220;
+  20   1        TH1 = 253;
+  21   1        TL1 = 253;
+  22   1        TR1 =1;
+  23   1        ES = 1;
+  24   1      }
+  25          
+  26          /*send one byte by uart*/
+  27          void SendUartOneByte(unsigned char byte_to_send)
+  28          {
+  29   1        //TB8 = P;
+  30   1        SBUF = byte_to_send;
+  31   1        while(0 == TI);
+  32   1        TI = 0;
+  33   1      }
+  34          
+  35          void SendUartMultiBytes(unsigned char *p_multiBytes,unsigned char len)
+  36          {
+  37   1        unsigned char i;
+  38   1      //  if(((void *)p_multiBytes == (void*)0) || (len == 0))
+  39   1      //  {
+  40   1      //    return;
+  41   1      //  }
+  42   1        for(i=0;i<len;i++)
+  43   1        {
+  44   2          SendUartOneByte(p_multiBytes[i]);
+  45   2        }
+  46   1      }
+  47          
+  48          
+  49          
+  50          
+  51          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.0.0   UART_STC89C52RC                                                   05/31/2022 00:58:41 PAGE 2   
+
+   CODE SIZE        =     63    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

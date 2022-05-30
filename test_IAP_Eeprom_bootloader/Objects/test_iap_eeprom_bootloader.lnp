@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\bootloader.obj",
+".\Objects\delay.obj",
+".\Objects\test.obj",
+".\Objects\uart_stc89c52rc.obj" 
+TO ".\Objects\test_iap_eeprom_bootloader" 
+PRINT(".\Listings\test_iap_eeprom_bootloader.m51") RAMSIZE(256) 
+CODE( 0x0000-0x0A00 )

@@ -1,0 +1,312 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/31/2022  01:10:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\bootloader.obj, .\Objects\delay.obj, .\Objects\test.obj, .\
+>> Objects\uart_stc89c52rc.obj TO .\Objects\test_iap_eeprom_bootloader PRINT (.\Listings\test_iap_eeprom_bootloader.m51)
+>>  RAMSIZE (256) CODE (0X0000-0X0A00)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\bootloader.obj (BOOTLOADER)
+  .\Objects\delay.obj (DELAY)
+  .\Objects\test.obj (TEST)
+  .\Objects\uart_stc89c52rc.obj (UART_STC89C52RC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (VSPRINTF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\test_iap_eeprom_bootloader (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     0059H     UNIT         _DATA_GROUP_
+            IDATA   007BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    035FH     008EH     UNIT         ?C?LIB_CODE
+            CODE    03EDH     0049H     UNIT         ?PR?_TEST_PRINTF?TEST
+            CODE    0436H     002EH     UNIT         ?PR?_VSPRINTF?VSPRINTF
+            CODE    0464H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    048BH     0023H     UNIT         ?PR?_SENDUARTMULTIBYTES?UART_STC89C52RC
+            CODE    04AEH     0021H     UNIT         ?PR?_DELAY_1MS?DELAY
+            CODE    04CFH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    04E4H     0014H     UNIT         ?CO?BOOTLOADER
+            CODE    04F8H     0014H     UNIT         ?PR?UART_RT_INIT?UART_STC89C52RC
+            CODE    050CH     0011H     UNIT         ?PR?MAIN?BOOTLOADER
+            CODE    051DH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0529H     0008H     UNIT         ?PR?_SENDUARTONEBYTE?UART_STC89C52RC
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/31/2022  01:10:25  PAGE 2
+
+
+OVERLAY MAP OF MODULE:   .\Objects\test_iap_eeprom_bootloader (?C_STARTUP)
+
+
+SEGMENT                                            BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                           START    LENGTH     START    LENGTH
+-----------------------------------------------------------------------------------
+?C_C51STARTUP                                   -----    -----      -----    -----
+  +--> ?PR?MAIN?BOOTLOADER
+
+?PR?MAIN?BOOTLOADER                             -----    -----      -----    -----
+  +--> ?PR?UART_RT_INIT?UART_STC89C52RC
+  +--> ?CO?BOOTLOADER
+  +--> ?PR?_TEST_PRINTF?TEST
+
+?PR?_TEST_PRINTF?TEST                           -----    -----      0022H    003FH
+  +--> ?PR?_VSPRINTF?VSPRINTF
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SENDUARTMULTIBYTES?UART_STC89C52RC
+
+?PR?_VSPRINTF?VSPRINTF                          -----    -----      0061H    0006H
+  +--> ?PR?PRINTF?PRINTF
+
+?PR?PRINTF?PRINTF                               0020H.0  0001H.1    0067H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_SENDUARTMULTIBYTES?UART_STC89C52RC         -----    -----      0061H    0003H
+  +--> ?PR?_SENDUARTONEBYTE?UART_STC89C52RC
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\test_iap_eeprom_bootloader (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:051DH         SEGMENT       ?C_C51STARTUP
+  I:007BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0520H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:051DH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/31/2022  01:10:25  PAGE 3
+
+
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:051DH         LINE#         133
+  C:051FH         LINE#         134
+  C:0520H         LINE#         135
+  C:0521H         LINE#         136
+  C:0523H         LINE#         185
+  C:0526H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        BOOTLOADER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:050CH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:050CH         LINE#         9
+  C:050CH         LINE#         10
+  C:050CH         LINE#         11
+  C:050FH         LINE#         12
+  C:051AH         LINE#         14
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BOOTLOADER
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:04AEH         PUBLIC        _delay_1ms
+  -------         PROC          _DELAY_1MS
+  D:0006H         SYMBOL        i
+  -------         DO            
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:04AEH         LINE#         3
+  C:04AEH         LINE#         4
+  C:04AEH         LINE#         6
+  C:04B9H         LINE#         7
+  C:04B9H         LINE#         8
+  C:04BCH         LINE#         9
+  C:04C7H         LINE#         10
+  C:04CEH         LINE#         11
+  -------         ENDPROC       _DELAY_1MS
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:03EDH         PUBLIC        _test_printf
+  -------         PROC          _TEST_PRINTF
+  D:0022H         SYMBOL        printFlags
+  D:0023H         SYMBOL        fmt
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/31/2022  01:10:25  PAGE 4
+
+
+  -------         DO            
+  D:0026H         SYMBOL        ellipsis_15
+  D:0035H         SYMBOL        args
+  D:0038H         SYMBOL        length
+  D:0039H         SYMBOL        buf
+  -------         ENDDO         
+  C:03EDH         LINE#         6
+  C:03F5H         LINE#         7
+  C:03F5H         LINE#         12
+  C:03FEH         LINE#         13
+  C:0418H         LINE#         16
+  C:042CH         LINE#         18
+  C:0435H         LINE#         19
+  -------         ENDPROC       _TEST_PRINTF
+  -------         ENDMOD        TEST
+
+  -------         MODULE        UART_STC89C52RC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  C:04F8H         PUBLIC        Uart_RT_Init
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:048BH         PUBLIC        _SendUartMultiBytes
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:0529H         PUBLIC        _SendUartOneByte
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          UART_RT_INIT
+  C:04F8H         LINE#         12
+  C:04F8H         LINE#         13
+  C:04F8H         LINE#         15
+  C:04FBH         LINE#         16
+  C:04FEH         LINE#         17
+  C:0501H         LINE#         20
+  C:0504H         LINE#         21
+  C:0507H         LINE#         22
+  C:0509H         LINE#         23
+  C:050BH         LINE#         24
+  -------         ENDPROC       UART_RT_INIT
+  -------         PROC          _SENDUARTONEBYTE
+  D:0007H         SYMBOL        byte_to_send
+  C:0529H         LINE#         27
+  C:0529H         LINE#         28
+  C:0529H         LINE#         30
+  C:052BH         LINE#         31
+  C:052EH         LINE#         32
+  C:0530H         LINE#         33
+  -------         ENDPROC       _SENDUARTONEBYTE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/31/2022  01:10:25  PAGE 5
+
+
+  -------         PROC          _SENDUARTMULTIBYTES
+  D:0061H         SYMBOL        p_multiBytes
+  D:0005H         SYMBOL        len
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:048BH         LINE#         35
+  C:0491H         LINE#         36
+  C:0491H         LINE#         42
+  C:0498H         LINE#         43
+  C:0498H         LINE#         44
+  C:04AAH         LINE#         45
+  C:04ADH         LINE#         46
+  -------         ENDPROC       _SENDUARTMULTIBYTES
+  -------         ENDMOD        UART_STC89C52RC
+
+  -------         MODULE        ?C?CLDOPTR
+  C:035FH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        STRLEN
+  C:04CFH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        VSPRINTF
+  D:005EH         PUBLIC        ?_VSPRINTF?BYTE
+  C:0436H         PUBLIC        _VSPRINTF
+  -------         ENDMOD        VSPRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:038CH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        PRINTF
+  D:0067H         PUBLIC        ?_PRINTF517?BYTE
+  D:0067H         PUBLIC        ?_PRINTF?BYTE
+  D:0067H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0067H         PUBLIC        ?_SPRINTF?BYTE
+  C:0065H         PUBLIC        _PRINTF
+  C:0065H         PUBLIC        _PRINTF517
+  C:005FH         PUBLIC        _SPRINTF
+  C:005FH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CSTPTR
+  C:03A5H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:03B7H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:03C7H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/31/2022  01:10:25  PAGE 6
+
+
+  C:0464H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_1MS?DELAY
+
+Program Size: data=99.1 xdata=0 code=1329
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

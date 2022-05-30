@@ -1,0 +1,1 @@
+"iap_eeprom.c" OPTIMIZE (8,SPEED) BROWSE INTVECTOR(0x0A00) DEBUG OBJECTEXTEND PRINT(.\Listings\iap_eeprom.lst) TABS (2) OBJECT(.\Objects\iap_eeprom.obj)
